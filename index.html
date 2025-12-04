@@ -1,34 +1,198 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Finder</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Finder – المنصة الذكية</title>
+
+  <style>
+    /* ============ الألوان التقنية ============ */
+    :root {
+      --sidebar-bg: #0f172a;
+      --sidebar-hover: #1e293b;
+      --main-bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --accent: #3b82f6;
+      --text-dark: #0f172a;
+      --text-light: #e2e8f0;
+      --radius: 18px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Tajawal", sans-serif;
+      background: var(--main-bg);
+      color: var(--text-dark);
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ============ القائمة الجانبية ============ */
+    .sidebar {
+      width: 260px;
+      background: var(--sidebar-bg);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      padding: 25px 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: var(--accent);
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--text-light);
+      padding: 12px 15px;
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 10px;
+      transition: 0.25s;
+      font-size: 16px;
+    }
+
+    .menu a:hover {
+      background: var(--sidebar-hover);
+    }
+
+    /* ============ المنطقة الرئيسية ============ */
+    .content-area {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .header-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- ============ القائمة الجانبية ============ -->
+  <aside class="sidebar">
+    <div class="logo">⚡ Smart Finder</div>
 
-    <!-- Nav Bar -->
-    <header class="navbar">
-        <h2 class="logo">Smart Finder</h2>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="problem.html">المشكلة</a>
-            <a href="solution.html">الحل</a>
-            <a href="features.html">المميزات</a>
-            <a href="contact.html">تواصل معنا</a>
-        </nav>
-    </header>
+    <div class="menu">
+      <a href="#home">🏠 الرئيسية</a>
+      <a href="#problem">⚠️ المشكلة</a>
+      <a href="#solution">💡 الحل</a>
+      <a href="#search">🔎 محرك البحث</a>
+      <a href="#features">✨ المميزات</a>
+      <a href="#contact">📩 تواصل</a>
+    </div>
+  </aside>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>حل تقني بسيط يخدم الجميع</h1>
-        <p>منصة ذكية تساعد الأفراد على العثور على خدمات ومعلومات محلية بسهولة وبدقة.</p>
-        
-        <a href="solution.html" class="btn">ابدئي الآن</a>
-    </section>
+  <!-- ============ المحتوى الرئيسي ============ -->
+  <main class="content-area">
 
-    <script src="script.js"></script>
+    <h1 class="header-title">مرحبًا بكم في Smart Finder</h1>
+
+    <div class="card" id="home">
+      <h2>الفكرة الأساسية</h2>
+      <p>
+        منصة ذكية تساعد المجتمع في الوصول إلى الخدمات بسرعة عبر محرك بحث مبسّط وقوي.
+      </p>
+      <a class="btn" href="#search">ابدأ الاستخدام</a>
+    </div>
+
+    <div class="card" id="problem">
+      <h2>المشكلة</h2>
+      <p>
+        يعاني الكثير من صعوبة إيجاد أقرب خدمة أو مركز مهم بشكل سريع وواضح.
+      </p>
+    </div>
+
+    <div class="card" id="solution">
+      <h2>الحل</h2>
+      <p>
+        تقديم منصة تحتوي على محرك بحث ذكي يعرض أقرب خدمة يحتاجها المستخدم فورًا.
+      </p>
+    </div>
+
+    <div class="card" id="search">
+      <h2>جرب محرك البحث الذكي</h2>
+
+      <input id="searchInput" placeholder="اكتب خدمة… مثال: مستشفى" 
+      style="width:100%; padding:12px; border-radius:10px; margin-bottom:10px;">
+
+      <a class="btn" onclick="smartSearch()">ابحث الآن</a>
+
+      <div id="searchResult" class="card" style="margin-top:20px; background:#f8fafc;">
+        ستظهر النتيجة هنا…
+      </div>
+    </div>
+
+    <div class="card" id="features">
+      <h2>المميزات</h2>
+      <ul>
+        <li>واجهة حديثة وسهلة.</li>
+        <li>نتائج فورية.</li>
+        <li>ألوان واضحة وخطوط مريحة.</li>
+        <li>ملائمة لجميع فئات المجتمع.</li>
+      </ul>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>تواصل معنا</h2>
+      <p>example@email.com</p>
+    </div>
+
+  </main>
+
+  <!-- ============ JavaScript ============ -->
+  <script>
+    const services = {
+      "مستشفى": "أقرب مستشفى: مستشفى الملك فهد – يبعد 3 كم.",
+      "مدرسة": "أقرب مدرسة: المدرسة المتوسطة الرابعة – تبعد 1.2 كم.",
+      "مكتبة": "أقرب مكتبة: مكتبة المعرفة – تبعد 1.5 كم.",
+      "صيانة": "أقرب مركز صيانة: مركز صيانة الإلكترونيات – يبعد 900 متر.",
+      "جامعة": "أقرب جامعة: جامعة الملك سعود.",
+      "مطار": "أقرب مطار: مطار الملك خالد الدولي."
+    };
+
+    function smartSearch() {
+      const input = document.getElementById("searchInput").value.trim();
+      const result = document.getElementById("searchResult");
+
+      if (services[input]) {
+        result.innerHTML = services[input];
+      } else if (input === "") {
+        result.innerHTML = "الرجاء كتابة اسم الخدمة.";
+      } else {
+        result.innerHTML = "الخدمة غير موجودة… سيتم إضافتها لاحقًا.";
+      }
+    }
+  </script>
+
 </body>
 </html>
