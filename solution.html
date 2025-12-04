@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الحل | Smart Finder</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<section class="card">
+    <h2>ابحث عن خدمة</h2>
+    <input id="searchInput" placeholder="اكتب اسم الخدمة... مثال: مستشفى" 
+    style="width:100%; padding:12px; border-radius:10px;">
 
-<body>
+    <button onclick="smartSearch()" 
+    style="margin-top:15px; padding:12px 25px; border-radius:12px; background:var(--blue-main); color:white; border:0; cursor:pointer;">
+        ابحث الآن
+    </button>
 
-<header class="navbar">
-    <h2 class="logo">Smart Finder</h2>
-    <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="problem.html">المشكلة</a>
-        <a href="solution.html" class="active">الحل</a>
-        <a href="features.html">المميزات</a>
-        <a href="contact.html">تواصل معنا</a>
-    </nav>
-</header>
-
-<section class="page">
-    <h1>الحل</h1>
-    <p>
-        قمنا بتطوير منصة "Smart Finder" التي تقوم بتجميع الخدمات المهمة في مكان واحد،
-        مع عرضها بطريقة بسيطة وواضحة تساعد المستخدم على الوصول للمعلومة بسرعة.
-    </p>
-
-    <p>
-        تعتمد المنصة على محرك بحث ذكي، وتصنيف الخدمات، واقتراح خدمات تناسب احتياجات
-        كل فئة من فئات المجتمع.
-    </p>
+    <div id="searchResult" class="card" style="margin-top:20px; background:#eef2ff;">
+        ستظهر النتيجة هنا...
+    </div>
 </section>
-
-</body>
-</html>
